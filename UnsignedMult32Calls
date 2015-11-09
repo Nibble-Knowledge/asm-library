@@ -1,0 +1,13 @@
+#to call UMult32 appropriately:
+
+MOV32 $Op1 INTO UMult32_Op1
+MOV32 $Op2 INTO UMult32_Op2
+MOVADDR Return INTO UMult32_RetAddr[1]
+LOD N_[0]
+JMP UMult32_Entry
+Return:
+NOP 0
+
+#64-bit answer is now in UMult32_Ans
+#If you only want an 32-bit answer, 
+#look in UMult32_Ans[8]

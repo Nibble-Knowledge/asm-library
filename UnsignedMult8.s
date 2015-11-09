@@ -4,6 +4,8 @@ UMult8_Entry:
 LOD N_[0]
 STR UMult8_Ans[0]
 STR UMult8_Ans[1]
+STR UMult8_Ans[2]
+STR UMult8_Ans[3]
 STR UMult8_1full[0]
 STR UMult8_1full[1]
 STR UMult8_loopCount[0]

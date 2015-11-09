@@ -1,0 +1,13 @@
+#to call UMult16 appropriately:
+
+MOV16 $Op1 INTO UMult16_Op1
+MOV16 $Op2 INTO UMult16_Op2
+MOVADDR Return INTO UMult16_RetAddr[1]
+LOD N_[0]
+JMP UMult16_Entry
+Return:
+NOP 0
+
+#32-bit answer is now in UMult16_Ans
+#If you only want an 16-bit answer, 
+#look in UMult16_Ans[4]
