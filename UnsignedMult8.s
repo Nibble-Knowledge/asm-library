@@ -1,5 +1,4 @@
-
-;Initialise variables
+;Initialise Variables
 UMult8_Entry:
 LOD N_[0]
 STR UMult8_Ans[0]
