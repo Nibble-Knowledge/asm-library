@@ -1,0 +1,44 @@
+#This function can be called three ways:
+#	-signed 16-bit multiplication
+#	-unsigned 16-bit multiplication
+#	-unsafe 32-bit multiplication
+
+#to call Mult16 as signed multiplication:
+
+MOV16 $Op1 INTO Mult16_Op1
+MOV16 $Op2 INTO Mult16_Op2
+MOVADDR Return INTO Mult16_RetAddr[1]
+LOD N_[0]
+JMP Mult16_SignedEntry
+Return:
+NOP 0
+
+#to call Mult16 as unsigned multiplication:
+
+MOV16 $Op1 INTO Mult16_Op1
+MOV16 $Op2 INTO Mult16_Op2
+MOVADDR Return INTO Mult16_RetAddr[1]
+LOD N_[0]
+STR Mult16_Op1Ex
+STR Mult16_Op2Ex
+JMP Mult16_UnsignedEntry
+Return:
+NOP 0
+
+#to call Mult16 as overflow-unsafe sign-agnostic
+#32-bit multiplication (slightly faster than mult32):
+
+MOV32 $Op1 INTO Mult16_1full
+MOV32 $Op2 INTO Mult16_2full
+MOVADDR Return INTO Mult16_RetAddr[1]
+LOD N_[0]
+JMP Mult16_32Entry
+Return:
+NOP 0
+
+
+#32-bit answer is now in Mult16_Ans.
+#The answer will be determined according
+#to the same signedness as the call.
+#If you only want a 16-bit answer, 
+#look in Mult16_Ans[4]

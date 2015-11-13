@@ -1,0 +1,38 @@
+#to call Mult4 as signed multiplication:
+
+MOV $Op1 INTO Mult4_Op1[1]
+MOV $Op2 INTO Mult4_Op2[1]
+MOVADDR Return INTO Mult4_RetAddr[1]
+LOD N_[0]
+JMP Mult4_SignedEntry
+Return:
+NOP 0
+
+#to call Mult4 as unsigned multiplication:
+
+MOV $Op1 INTO Mult4_Op1[1]
+MOV $Op2 INTO Mult4_Op2[1]
+MOVADDR Return INTO Mult4_RetAddr[1]
+LOD N_[0]
+STR Mult4_Op1[0]
+STR Mult4_Op2[0]
+JMP Mult4_UnsignedEntry
+Return:
+NOP 0
+
+#to call Mult4 as unsafe 8-bit multiplication:
+
+MOV8 $Op1 INTO Mult4_Op1
+MOV8 $Op2 INTO Mult4_Op2
+MOVADDR Return INTO Mult4_RetAddr[1]
+LOD N_[0]
+JMP Mult4_8Entry
+Return:
+NOP 0
+
+
+#8-bit answer is now in Mult4_Ans.
+#The answer will be determined according
+#to the same signedness as the call.
+#If you only want a 4-bit answer, 
+#look in Mult4_Ans[1]

@@ -1,0 +1,38 @@
+#to call Mult8 as signed multiplication:
+
+MOV8 $Op1 INTO Mult8_Op1
+MOV8 $Op2 INTO Mult8_Op2
+MOVADDR Return INTO Mult8_RetAddr[1]
+LOD N_[0]
+JMP Mult8_SignedEntry
+Return:
+NOP 0
+
+#to call Mult8 as unsigned multiplication:
+
+MOV8 $Op1 INTO Mult8_Op1
+MOV8 $Op2 INTO Mult8_Op2
+MOVADDR Return INTO Mult8_RetAddr[1]
+LOD N_[0]
+STR Mult8_Op1Ex
+STR Mult8_Op2Ex
+JMP Mult8_UnsignedEntry
+Return:
+NOP 0
+
+#to call Mult8 as unsafe 16-bit multiplication:
+
+MOV16 $Op1 INTO Mult8_1full
+MOV16 $Op2 INTO Mult8_2full
+MOVADDR Return INTO Mult8_RetAddr[1]
+LOD N_[0]
+JMP Mult8_16Entry
+Return:
+NOP 0
+
+
+#16-bit answer is now in Mult8_Ans.
+#The answer will be determined according
+#to the same signedness as the call.
+#If you only want an 8-bit answer, 
+#look in Mult8_Ans[2]

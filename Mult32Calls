@@ -1,0 +1,42 @@
+#This function can be called three ways:
+#	-signed 32-bit multiplication
+#	-unsigned 32-bit multiplication
+#	-unsafe 64-bit multiplication
+
+#to call Mult32 as signed 32 multiplication:
+
+MOV32 $Op1 INTO Mult32_Op1
+MOV32 $Op2 INTO Mult32_Op2
+MOVADDR Return INTO Mult32_RetAddr[1]
+LOD N_[0]
+JMP Mult32_SignedEntry
+Return:
+NOP 0
+
+#to call Mult32 as unsigned 32 multiplication:
+
+MOV32 $Op1 INTO Mult32_Op1
+MOV32 $Op2 INTO Mult32_Op2
+MOVADDR Return INTO Mult32_RetAddr[1]
+LOD N_[0]
+STR Mult32_Op1Ex
+STR Mult32_Op2Ex
+JMP Mult32_UnsignedEntry
+Return:
+NOP 0
+
+#to call Mult32 as (sign-agnostic) 64-bit multiplication:
+
+MOV64 $Op1 INTO Mult32_1full
+MOV64 $Op2 INTO Mult32_2full
+MOVADDR Return INTO Mult32_RetAddr[1]
+LOD N_[0]
+JMP Mult32_64Entry
+Return:
+NOP 0
+
+#64-bit answer is now in Mult32_Ans.
+#The answer will be determined according
+#to the same signedness as the call.
+#If you only want a 32-bit answer, 
+#look in Mult32_Ans[8]
