@@ -64,4 +64,4 @@ Mult4_Op1: 			.data 2
 Mult4_Op2: 			.data 2
 Mult4_mask:			.data 1
 Mult4_loopCount:	.data 1
-Mult4_2full			.data 2
+Mult4_2full:		.data 2
