@@ -32,7 +32,7 @@ ADD8 Mult4_Op1 Mult4_Ans INTO Mult4_Ans
 
 ;Mess with operands appropriately
 Mult4_doneAdd:
-LShift8 Mult4_Op1 INTO Mult4_Op1
+LSHIFT8 Mult4_Op1 INTO Mult4_Op1
 LROT Mult4_mask INTO Mult4_mask
 ;Leave inner loop, if it is time to do so
 LOD Mult4_mask
