@@ -75,7 +75,7 @@ ADD64 Mult32_1full Mult32_Ans INTO Mult32_Ans
 
 ;Mess with operands appropriately
 Mult32_doneAdd:
-LShift64 Mult32_1full INTO Mult32_1full
+LSHIFT64 Mult32_1full INTO Mult32_1full
 LROT Mult32_mask INTO Mult32_mask
 
 ;Leave inner loop, if it is time to do so

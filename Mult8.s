@@ -50,7 +50,7 @@ ADD16 Mult8_1full Mult8_Ans INTO Mult8_Ans
 
 ;Mess with operands appropriately
 Mult8_doneAdd:
-LShift16 Mult8_1full INTO Mult8_1full
+LSHIFT16 Mult8_1full INTO Mult8_1full
 LROT Mult8_mask INTO Mult8_mask
 
 ;Leave inner loop, if it is time to do so

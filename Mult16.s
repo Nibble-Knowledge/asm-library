@@ -58,7 +58,7 @@ ADD32 Mult16_1full Mult16_Ans INTO Mult16_Ans
 
 ;Mess with operands appropriately
 Mult16_doneAdd:
-LShift32 Mult16_1full INTO Mult16_1full
+LSHIFT32 Mult16_1full INTO Mult16_1full
 LROT Mult16_mask INTO Mult16_mask
 
 ;Leave inner loop, if it is time to do so
