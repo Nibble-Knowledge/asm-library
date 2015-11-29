@@ -24,6 +24,6 @@ JMP 0000
 LOD N_[0]
 JMP Spin_Entry
 
-Spin_Count: 		.data 16 0x00000000
-Spin_Decrement:		.data 16 0xFFFFFFFF
+Spin_Count: 		.data 16 0x0000000000000000
+Spin_Decrement:		.data 16 0xFFFFFFFFFFFFFFFF
 Spin_OrBox: 		.data 1 0x0
