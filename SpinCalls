@@ -1,0 +1,18 @@
+#How to call Spin.s
+#Note: Unlike practically all the other asm-library
+#functions, you can trust this one to have good initialised
+#variables, since it only returns if Spin_Count == 0.
+#It supports any number of cycles up to 2^64 - 1.
+#Just MOV in an appropriate number and continue
+
+#You usually only need to edit one nibble of Spin_Count
+#Changing the offset is the thing that really changes the
+#spin time
+
+
+MOV N_[1] INTO Spin_Count[5]
+MOVADDR SpinCall_Return INTO Spin_Return[1]
+LOD N_[0]
+JMP Spin_Entry
+SpinCall_Return:
+NOP 0000
