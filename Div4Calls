@@ -1,0 +1,34 @@
+#To call Div4, unsigned
+
+MOV $divisor INTO Div4_Divisor
+MOV $dividend INTO Div4_Dividend
+MOV N_[0] INTO Div4_ZeroForUnsigned
+MOVADDR Return INTO Div4_Return[1]
+LOD N_[0]
+JMP Div4_UnsignedEntry
+
+Return:
+NOP 0
+
+#Quotient now in Div4_Quotient
+#Remainder now in Div4_Remainder
+
+
+#To call div4, signed
+
+MOV $divisor INTO Div4_Divisor
+MOV $dividend INTO Div4_Dividend
+MOVADDR Return INTO Div4_Return[1]
+LOD N_[0]
+JMP Div4_SignedEntry
+
+Return:
+NOP 0
+
+#Note that this works a little different than you might be
+#used to: The remainder is always given as positive, as per
+#the modulus operator. This is meaningless if the divisor is
+#negative, but correct if only the dividend is negative.
+#Also,
+#The quotient is always rounded towards 0, instead of "down".
+#I think.
