@@ -54,6 +54,7 @@ LSHIFT16 Mult8_1full INTO Mult8_1full
 LROT Mult8_mask INTO Mult8_mask
 
 ;Leave inner loop, if it is time to do so
+UCLC ACC
 LOD Mult8_mask
 ADD N_[F]
 JMP Mult8_doneInner
@@ -68,6 +69,7 @@ LOD Mult8_2full[1]
 STR Mult8_2full[2]
 LOD Mult8_2full[0]
 STR Mult8_2full[1]
+UCLC ACC
 LOD Mult8_loopCount
 ADD N_[1]
 STR Mult8_loopCount

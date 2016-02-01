@@ -35,6 +35,7 @@ Mult4_doneAdd:
 LSHIFT8 Mult4_Op1 INTO Mult4_Op1
 LROT Mult4_mask INTO Mult4_mask
 ;Leave inner loop, if it is time to do so
+UCLC ACC
 LOD Mult4_mask
 ADD N_[F]
 JMP Mult4_doneInner
@@ -45,6 +46,7 @@ JMP Mult4_innerLoopStart
 Mult4_doneInner:
 LOD Mult4_2full[0]
 STR Mult4_2full[1]
+UCLC ACC
 LOD Mult4_loopCount
 ADD N_[1]
 STR Mult4_loopCount

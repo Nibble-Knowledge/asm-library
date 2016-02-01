@@ -79,6 +79,7 @@ LSHIFT64 Mult32_1full INTO Mult32_1full
 LROT Mult32_mask INTO Mult32_mask
 
 ;Leave inner loop, if it is time to do so
+UCLC ACC
 LOD Mult32_mask
 ADD N_[F]
 JMP Mult32_doneInner
@@ -118,6 +119,7 @@ STR Mult32_2full[2]
 LOD Mult32_2full[0]
 STR Mult32_2full[1]
 
+UCLC ACC
 LOD Mult32_loopCount
 ADD N_[1]
 STR Mult32_loopCount
